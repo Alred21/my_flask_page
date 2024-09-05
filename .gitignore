@@ -1,9 +1,4 @@
-.venv/
 venv/
-*.pyc
-*~
 __pycache__/
-instance/
-.webassets-cache
-.db
-.idea/
+*.pyc
+.vscode/
