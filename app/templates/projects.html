@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Projects</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    {% include 'navbar.html' %}
+    
+    <!-- Projects Section -->
+    <main>
+        <section class="projects">
+            <h1>Projects</h1>
+            <div class="project-list">
+                <div class="project-item">
+                    <img src="{{ url_for('static', filename='images/project1.jpg') }}" alt="Project 1 Image">
+                    <h2>Project Title 1</h2>
+                    <p>A description of your project goes here. Explain what it does, the technologies used, and any other interesting information.</p>
+                </div>
+                <div class="project-item">
+                    <img src="{{ url_for('static', filename='images/project2.jpg') }}" alt="Project 2 Image">
+                    <h2>Project Title 2</h2>
+                    <p>Another description for a different project. Include key features and any notable accomplishments.</p>
+                </div>
+                <!-- Add more project items as needed -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    {% include 'footer.html' %}
+</body>
+</html>
