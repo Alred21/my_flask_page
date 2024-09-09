@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <!-- Link to a Google Font similar to Apple's San Francisco font -->
+    <link href="https://fonts.googleapis.com/css2?family=Helvetica:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Include Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+</head>
+<body>
+    <!-- Include Navigation Bar -->
+    {% include 'navbar.html' %}
+    
+    <!-- About Section -->
+    <main>
+        <section class="about">
+            <h1>About Me</h1>
+            <p>
+                Hi, I'm [Your Name], a passionate developer with a love for creating intuitive and impactful web applications. With experience in Flask, Python, and other web technologies, I build seamless and efficient user experiences.
+            </p>
+            <p>
+                Feel free to explore my projects or get in touch if you want to collaborate!
+            </p>
+        </section>
+
+        <!-- Footprint Section -->
+        <section class="footprint">
+            <h2>My Footprint</h2>
+            <div id="map" class="map"></div>
+        </section>
+    </main>
+
+    <!-- Include the Footer -->
+    {% include 'footer.html' %}
+
+    <!-- Include Leaflet JavaScript -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+    <!-- Initialize the Map -->
+    <script>
+        // Initialize the Leaflet map
+        var map = L.map('map').setView([20, 0], 2); // Center on the world
+    
+        // Add a tile layer (map background)
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+    
+        // Example data for visited places with photos and descriptions
+        var visitedPlaces = [
+            {
+                lat: 48.8566,
+                lng: 2.3522,
+                name: 'Paris, France',
+                photo: 'https://via.placeholder.com/150', // Placeholder image URL
+                description: 'A lovely trip to Paris where I visited the Eiffel Tower.'
+            },
+            {
+                lat: 40.7128,
+                lng: -74.0060,
+                name: 'New York, USA',
+                photo: 'https://via.placeholder.com/150', // Placeholder image URL
+                description: 'Explored the busy streets of NYC and saw the Statue of Liberty.'
+            },
+            {
+                lat: 35.6895,
+                lng: 139.6917,
+                name: 'Tokyo, Japan',
+                photo: 'https://via.placeholder.com/150', // Placeholder image URL
+                description: 'An amazing journey through the streets of Tokyo, enjoying the culture.'
+            }
+        ];
+    
+        // Add markers with popups to the map
+        visitedPlaces.forEach(function(place) {
+            var marker = L.marker([place.lat, place.lng]).addTo(map);
+    
+            // Create popup content
+            var popupContent = `
+                <div class="popup">
+                    <img src="${place.photo}" alt="${place.name}" style="width: 100%; height: auto; border-radius: 8px;">
+                    <h3>${place.name}</h3>
+                    <p>${place.description}</p>
+                </div>
+            `;
+            
+            // Bind popup with options to adjust offset and max width
+            marker.bindPopup(popupContent, {
+                maxWidth: 250,  // Set a maximum width for the popup
+                autoPan: true,  // Automatically pan the map to show the popup fully
+                offset: [0, -10] // Adjust the offset to position the popup correctly
+            });
+        });
+    </script>       
+</body>
+</html>

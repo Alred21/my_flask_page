@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yichen's Sandbox</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <!-- Link to a Google Font similar to Apple's San Francisco font -->
+    <link href="https://fonts.googleapis.com/css2?family=Helvetica:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Include the Navigation Bar -->
+    {% include 'navbar.html' %}
+
+    <!-- Main Content -->
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Welcome to My Personal Website</h1>
+                <p>Discover my projects, learn more about me, and get in touch.</p>
+                <a href="{{ url_for('main.about') }}" class="cta-button">Learn More</a>
+            </div>
+        </section>
+
+        <section class="feature">
+            <div class="feature-item">
+                <img src="{{ url_for('static', filename='images/project1.jpg') }}" alt="Project Image">
+                <h2>Project Title 1</h2>
+                <p>Brief description of the project or feature you want to highlight.</p>
+            </div>
+            <div class="feature-item">
+                <img src="{{ url_for('static', filename='images/project2.jpg') }}" alt="Project Image">
+                <h2>Project Title 2</h2>
+                <p>Another brief description of a project or feature you want to highlight.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Include the Footer -->
+    {% include 'footer.html' %}
+</body>
+</html>
