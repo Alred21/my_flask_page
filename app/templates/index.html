@@ -9,18 +9,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Helvetica:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Navigation Bar -->
-    <header>
-        <nav class="navbar">
-            <div class="navbar-brand">Yichen's Sandbox</div>
-            <ul class="navbar-menu">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Projects</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+    <!-- Include the Navigation Bar -->
+    {% include 'navbar.html' %}
 
     <!-- Main Content -->
     <main>
@@ -28,7 +18,7 @@
             <div class="hero-content">
                 <h1>Welcome to My Personal Website</h1>
                 <p>Discover my projects, learn more about me, and get in touch.</p>
-                <a href="#" class="cta-button">Learn More</a>
+                <a href="{{ url_for('main.about') }}" class="cta-button">Learn More</a>
             </div>
         </section>
 
@@ -44,11 +34,9 @@
                 <p>Another brief description of a project or feature you want to highlight.</p>
             </div>
         </section>
-
-        <section class="footer">
-            <p>&copy; 2024 Yichen Zhang's Personal Website. All rights reserved.</p>
-        </section>
     </main>
+
+    <!-- Include the Footer -->
+    {% include 'footer.html' %}
 </body>
 </html>
-

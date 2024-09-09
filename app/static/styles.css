@@ -5,6 +5,9 @@ body {
     font-family: 'Helvetica', sans-serif;
     color: #333;
     line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 /* Navigation Bar */
@@ -53,6 +56,7 @@ body {
     background-color: #f8f8f8;
     padding: 100px 20px;
     text-align: center;
+    flex: 1;
 }
 
 .hero-content {
@@ -88,14 +92,17 @@ body {
 /* Feature Section */
 .feature {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-around;
     padding: 50px 20px;
     background-color: #fff;
+    flex: 1;
 }
 
 .feature-item {
     text-align: center;
     max-width: 300px;
+    margin-bottom: 20px;
 }
 
 .feature-item img {
@@ -115,7 +122,8 @@ body {
     padding: 20px;
     background-color: #f8f8f8;
     color: #777;
-    margin-top: 50px;
+    margin-top: auto;
+    width: 100%;
 }
 
 /* About Section */
@@ -137,42 +145,12 @@ body {
     line-height: 1.8;
 }
 
-/* Projects Section */
-.projects {
-    padding: 50px 20px;
-    text-align: center;
-    background-color: #f8f8f8;
-}
-
-.project-list {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 30px;
-    margin-top: 20px;
-}
-
-.project-item {
-    max-width: 300px;
-    text-align: left;
-}
-
-.project-item img {
-    width: 100%;
-    border-radius: 8px;
-    margin-bottom: 15px;
-}
-
-.project-item h2 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-}
-
 /* Contact Section */
 .contact {
     padding: 50px 20px;
     text-align: center;
     background-color: #fff;
+    flex: 1;
 }
 
 .contact form {
@@ -207,5 +185,77 @@ body {
 
 .contact button:hover {
     background-color: #005bb5;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+    .hero p {
+        font-size: 1rem;
+    }
+    .navbar-menu {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .feature {
+        flex-direction: column;
+        align-items: center;
+    }
+    .feature-item {
+        max-width: 90%;
+    }
+    .about h1, .feature-item h2, .contact h1 {
+        font-size: 2rem;
+    }
+}
+/* Footprint Section */
+.footprint {
+    padding: 50px 0; /* Remove side padding to allow full-width map */
+    text-align: center;
+    background-color: #f8f8f8;
+    margin-top: 40px;
+}
+
+.footprint h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+/* Full-width Map */
+.map {
+    height: 600px; /* Set the desired height */
+    width: 100%; /* Occupy the full width of the page */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 0 auto; /* Center align map on smaller screens */
+}
+
+/* Popup Content Styling */
+.popup {
+    max-width: 250px; /* Set a maximum width for the pop-up */
+    padding: 10px;
+    text-align: left;
+}
+
+.popup img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+    border-radius: 8px;
+}
+
+.popup h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.popup p {
+    margin-top: 5px;
+    font-size: 0.9rem;
+    line-height: 1.4;
 }
 
